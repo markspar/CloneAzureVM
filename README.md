@@ -5,12 +5,12 @@ A PowerShell script to help clone an Azure VM that uses managed disks.
 The easiest way is to use the Azure Cloud Shell to run the script. Here are the steps you can perform:
 1. Browse to [https://shell.azure.com](https://shell.azure.com).
 2. After selecting your tenant, choose "PowerShell" from the environment dropdown if the Bash environment was loaded.
-3. Clone this repo inside your Cloud Shell's mapped storage and navigate to the folder containing the script, `Clone-AzureRmVM.ps1`.
+3. Clone this repo inside your Cloud Shell's mapped storage and navigate to the folder containing the script, `Clone-AzVM.ps1`.
 4. Load the script.
 
 For example, the following call attempts to clone VM `SrcVM` in the same resource group where it resides, `Test-RG`, and placing it in a different VNet, `Dest-Vnet`, in Azure region `West US`:
 ```
-./Clone-AzureRmVM.ps1 -sourceResourceGroupName "Test-RG" -sourceSubscriptionId "00000000-0000-0000-0000-000000000000" -sourceVmName "SrcVM" -destinationVNetName "Dest-Vnet" -destinationLocation "westus"
+./Clone-AzVM.ps1 -sourceResourceGroupName "Test-RG" -sourceSubscriptionId "00000000-0000-0000-0000-000000000000" -sourceVmName "SrcVM" -destinationVNetName "Dest-Vnet" -destinationLocation "westus"
 ```
 
 ## Current Features
@@ -28,13 +28,4 @@ For example, the following call attempts to clone VM `SrcVM` in the same resourc
 * DOES **NOT** support cloning Network Security Groups (NSG).
 
 ## Revision History
-* v0.5.0 - June 1st, 2017
-
-  * Initial version.
-* v0.6.0 - April 2nd, 2018
-
-  * Added support for cloning availability sets, cloning IPConfigs, copying resource tags, and setting accelerated networking on the cloned NIC even if the source does not have it enabled.
-* v0.7.0 - Nov 7th, 2019
-
-  * Added support for cross-subscription cloning.
-  * Fixed a bug with reading the OS configuration.
+v1.0 - forked to change to Az from AzureRM, added support for keeping source machine name, shutting down source machine, and deleting snapshops once target VM is created
