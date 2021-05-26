@@ -1,5 +1,6 @@
 # CloneAzureVM
-A PowerShell script to help clone an Azure VM that uses managed disks.
+A PowerShell script to help clone an Azure VM that uses managed disks, including cloning a VM from one subscription to another (including between different AAD tenants),
+and without moving the vnet that the VM depends on.
 
 ## Running The Script
 The easiest way is to use the Azure Cloud Shell to run the script. Here are the steps you can perform:
